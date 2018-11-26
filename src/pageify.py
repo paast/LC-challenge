@@ -9,13 +9,6 @@ from pygments.formatters import HtmlFormatter
 
 # ~~~~~~~~~~~~~~~~~
 
-# html = markdown.markdown(open('../rsc/pages/test.md').read(), extensions=['tables'])
-
-# Need to replace ${filename} tags with the actual code blocks generated
-# by pygments. Also need to wrap it all in a legit html document + css.
-
-# open('../docs/index.html', 'w').write(html)
-
 def pyg(file):
 	file = str(file).split('{')[1].split('}')[0]
 	code = open('../rsc/snippets/' + file).read()
@@ -31,21 +24,26 @@ def main():
 	HTML = open('./templates/html.html').read()
 	menu_items = []
 	for name in map(lambda x: x.split('.')[0], page_files):
-		item = "<li><a href='{}'>{}</a></li>".format(name, name.upper())
+		item = "<a href='{}'>{}</a>".format(name + '.html', name.upper())
 		menu_items.append(item)
 
-	# generate pages
+	# generate and save pages
 	for file_name in page_files:
-		cre = r'\${.+}'
+		cre = r'<p>\${.+}<\/p>'
 		file = open('../rsc/pages/' + file_name).read()
-		content = re.sub(cre, pyg, file)
+		file = re.sub('\t', "•", file)
+		html = markdown.markdown(file, extensions=['tables'])
+		content = re.sub(cre, pyg, html)
+		content = re.sub('•', "<span class='tab'></span>", content)
 		page = HTML.format(menu_items=''.join(menu_items), content=content)
 
 		new_file = file_name.split('.')[0] + '.html'
 		open('../docs/' + new_file, 'w').write(page)
 
 
-
-
+# ~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__": main()
+
+
+# <div class='tab'></div>
