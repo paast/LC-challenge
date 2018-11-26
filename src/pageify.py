@@ -31,7 +31,7 @@ def main():
 	HTML = open('./templates/html.html').read()
 	menu_items = []
 	for name in map(lambda x: x.split('.')[0], page_files):
-		item = "<li><a href='{}'>{}</li>".format(name, name.upper())
+		item = "<li><a href='{}'>{}</a></li>".format(name, name.upper())
 		menu_items.append(item)
 
 	# generate pages
@@ -43,6 +43,7 @@ def main():
 
 		new_file = file_name.split('.')[0] + '.html'
 		open('../docs/' + new_file, 'w').write(page)
+
 
 
 
