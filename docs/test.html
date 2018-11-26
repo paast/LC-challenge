@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="norm.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="pygments.css">
+	</head>
+	<body>
+		<div class="menu"><ul><li><a href='index'>INDEX</li><li><a href='test'>TEST</li><li><a href='test2'>TEST2</li></ul></div>
+		<div class="content">
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+
+
+
+
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+
+
+
+
+1. First ordered list item
+2. Another item
+  * Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+  1. Ordered sub-list
+4. And another item.
+
+   You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+
+   To have a line break without a paragraph, you will need to use two trailing spaces.  
+   Note that this line is separate, but within the same paragraph.  
+   (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+
+
+
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
+
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself].
+
+URLs and URLs in angle brackets will automatically get turned into links. 
+http://www.example.com or <http://www.example.com> and sometimes 
+example.com (but not on Github, for example).
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+
+
+
+
+Here's our logo (hover to see the title text):
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style: 
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+
+
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+
+
+<span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+	<span class="n">new</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">pattern</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">new</span><span class="o">.</span><span class="n">append</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+	<span class="n">paul</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+	<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+
+	<span class="n">seed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+	<span class="c1"># last line</span>
+	<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+
+
+<span class="c1">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span> <span class="n">run</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+
+
+Inline `code` has `back-ticks around` it.
+
+
+
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+ 
+```python
+s = "Python syntax highlighting"
+print s
+```
+ 
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
+
+
+Colons can be used to align columns.
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the 
+raw Markdown line up prettily. You can also use inline Markdown.
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
+
+
+
+</div>
+	</body>
+</html>
