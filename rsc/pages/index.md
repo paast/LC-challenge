@@ -16,4 +16,3 @@ ${hello_world.py}
 This code isn't fancy and interactive like the online textbook, it's just nicely formatted html. It should support easy copying/pasting - let me know if you have trouble with this.
 
 
-

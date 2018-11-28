@@ -51,6 +51,10 @@ body {
 	text-align: justify;
 }
 
+.content ul {
+	width: 80%;
+}
+
 .content hr {
 	width: 50%;
 	color: #7f7c97;;

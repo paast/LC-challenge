@@ -48,7 +48,6 @@ def main():
 		content = re.sub(cre, pyg, html)
 		# content = re.sub('☻', "<span class='tab'></span>", content)
 		page = HTML.format(menu_items=''.join(menu_items), content=content)
-		print(page)
 
 		new_file = file_name.split('.')[0] + '.html'
 		open('../docs/' + new_file, 'w').write(page)
