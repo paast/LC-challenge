@@ -15,16 +15,5 @@ ${hello_world.py}
 
 This code isn't fancy and interactive like the online textbook, it's just nicely formatted html. It should support easy copying/pasting - let me know if you have trouble with this.
 
-Below is a map of what I plan on covering. Any suggestions are welcome.
 
-
-- thing 1  
-	- thing 1.1 long long long long long long long  
-	- thing 1.2  
-- thing 2  
-	- thing 2.1  
-		- thing 2.1.1  
-		- thing 2.1.2  
-	- thing 2.2  
-- thing 3  
 
