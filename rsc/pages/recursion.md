@@ -5,7 +5,7 @@
 <br>
 <br>
 
-	[One of the bonus missions](https://runestone.launchcode.org/runestone/static/thinkcspy/Studios/wagon-wheel.html#bonus-missions) for the Wagon Wheel studio was to generate the **nth** number of the Fibonacci sequence. If you happened to do this problem, you would likely have used a for-loop or while-loop to solve it. This happens to work fine for the Fibonacci sequence problem, but other problems cannot be solved using a single loop (or any well-defined amount of loops). Thus, we are going to investigate an alternate strategy for writing algorithms: **recursion**. In order to understand recursion, you must first understand recursion.
+[One of the bonus missions](https://runestone.launchcode.org/runestone/static/thinkcspy/Studios/wagon-wheel.html#bonus-missions) for the Wagon Wheel studio was to generate the **nth** number of the Fibonacci sequence. If you happened to do this problem, you would likely have used a for-loop or while-loop to solve it. This happens to work fine for the Fibonacci sequence problem, but other problems cannot be solved using a single loop (or any well-defined amount of loops). Thus, we are going to investigate an alternate strategy for writing algorithms: **recursion**. In order to understand recursion, you must first understand recursion.
 
 <br>
 
@@ -14,7 +14,7 @@
 <br>
 <br>
 
-	In programming, recursion is often utilized by having a function call itself to solve a self-similar sub-set of the original problem. For example, say we want to print each item in a list - that's easy, we just use a for-loop:
+In programming, recursion is often utilized by having a function call itself to solve a self-similar sub-set of the original problem. For example, say we want to print each item in a list - that's easy, we just use a for-loop:
 
 <br>
 
@@ -35,18 +35,14 @@ As you can see here, each time we encounter a list within a list, we recursively
 <br>
 <br>
 <br>
-
-<div class="alert">
-	INFO:<br><br>
-	I think I'll be putting solutions at the bottom with spoilers covering them in the future - didn't have enough time for now >_>.
+<div class="error">
+	WARNING:<br><br>
+	hover cursor below for spoiler
 </div>
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+${recursion_solution.py+}
+
+
+<div class="footer"></div>

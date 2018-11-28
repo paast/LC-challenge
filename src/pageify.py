@@ -10,9 +10,21 @@ from pygments.formatters import HtmlFormatter
 # ~~~~~~~~~~~~~~~~~
 
 def pyg(file):
-	file = str(file).split('{')[1].split('}')[0]
+	file = str(file)
+	spoiler = False
+	if (len(file.split('+')) > 1):
+		spoiler = True
+		file = file.split('+')[0]
+
+	file = file.split('{')[1].split('}')[0]
 	code = open('../rsc/snippets/' + file).read()
-	return highlight(code, PythonLexer(), HtmlFormatter(linenos='table'))
+	html = highlight(code, PythonLexer(), HtmlFormatter(linenos='table'))
+
+	if spoiler:
+		# add spoiler
+		html = html[:14] + "spoiler " + html[14:]
+
+	return html
 
 def main():
 
@@ -31,11 +43,12 @@ def main():
 	for file_name in page_files:
 		cre = r'<p>\${.+}<\/p>'
 		file = open('../rsc/pages/' + file_name).read()
-		file = re.sub('\t', "•", file)
+		# file = re.sub('\t', "☻", file)
 		html = markdown.markdown(file, extensions=['tables'])
 		content = re.sub(cre, pyg, html)
-		content = re.sub('•', "<span class='tab'></span>", content)
+		# content = re.sub('☻', "<span class='tab'></span>", content)
 		page = HTML.format(menu_items=''.join(menu_items), content=content)
+		print(page)
 
 		new_file = file_name.split('.')[0] + '.html'
 		open('../docs/' + new_file, 'w').write(page)
@@ -44,6 +57,3 @@ def main():
 # ~~~~~~~~~~~~~~~~~
 
 if __name__ == "__main__": main()
-
-
-# <div class='tab'></div>
