@@ -15,4 +15,21 @@ ${hello_world.py}
 
 This code isn't fancy and interactive like the online textbook, it's just nicely formatted html. It should support easy copying/pasting - let me know if you have trouble with this.
 
-Below is a map of what I plan on covering. Any suggestions are welcome.
+Below is a list of what I plan on covering. Any suggestions are welcome.
+
+
+
+- Regular Expressions
+- List/Dict/Set Comprehension
+- Map, Filter, Reduce
+- Bitwise Operators
+- Unit Testing
+- Web APIs
+- Slackbot
+- Graph Theory:
+	- Degree of Connection
+	- Markov Chain
+	- Pathfinding Algorithms
+- Cryptography
+	- ???
+
