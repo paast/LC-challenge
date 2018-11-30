@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/norm.css">
+		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/pygments.css">
+	</head>
+	<body>
+		<div class="menu"><a href='index.html'>INDEX</a><a href='primes.html'>PRIMES</a><a href='recursion.html'>RECURSION</a></div>
+		<div class="content"><h1>TIMING CODE &amp; PRIMES</h1>
+<hr />
+<p><br>
+<br>
+<br>
+<br></p>
+<p>In this lesson we'll look at measuring the performance of code through a few different modules. We'll also briefly mention Big O notation and its usefulness in analyzing the complexity of an algorithm. Finally, the challenge will be to take some starter code (a naive prime number generator) and have fun trying to optimize it. There is no specific end-goal, this challenge is meant to be exploratory. However, you are more than encouraged to share solutions amongst classmates and engage in some friendly competition.</p>
+<p>The first module we'll look at is the <a href="https://docs.python.org/3/library/time.html"><code>time</code></a> module. I'll only briefly go over <code>time.time_ns()</code>, but feel free to browse the documentation for other useful features. The function time.time_ns() gives us the system time in nanoseconds since the "epoch" (Jan 1, 1970 @ 00:00:00). At the time of writing this, I get the value <code>1543608402547405100</code>. If we take the time before executing our code, take the time after, and then calculate the difference, we end up with the time it took to execute the code.</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+	<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time_ns</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time_ns</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="c1"># prints ~50000000 for me (0.05 seconds)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">elapsed</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<p><br></p>
+<p>An alternative module for timing functions is <a href="https://docs.python.org/3/library/timeit.html"><code>timeit</code></a>. This one is a little more purpose-built and can be useful for dealing with some pitfalls like deviation in performance between multiple runs, etc. Feel free to investigate the documentation, and here's a snippet demonstrating the ability to run a piece of code 1000000 times:</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f(6)&quot;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;from __main__ import f&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+<p><br></p>
+<p>The last module that I'm going to introduce (briefly) is <a href="https://docs.python.org/3/library/dis.html"><code>dis</code></a> - it disassembles Python code into CPython bytecode. If you're interested in how this works, I'm not the one to explain in the detail - but the documentation has some interesting information. That said, the basic idea is that it allows you to see in a more accurate way what your Python code is doing. Below is an example - feel free to play around with more complex functions to get a better feel for it - though it's not necessary for what we're doing here.</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dis</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># prints the following to console:</span>
+
+<span class="c1">#   4           0 LOAD_FAST                0 (x)</span>
+<span class="c1">#               2 LOAD_FAST                0 (x)</span>
+<span class="c1">#               4 BINARY_MULTIPLY</span>
+<span class="c1">#               6 RETURN_VALUE</span>
+</pre></div>
+</td></tr></table>
+<p><br></p>
+<p>The left column is line number, middle is the bytecode instruction, left is the opargs. Here we can see that on line 4 we do the following: <code>load x</code>, <code>load x</code> (again, for multiplication), <code>binary multiply</code> (x * x), <code>return value</code> (returning calculated value). Again this isn't key to this challenge, but it can be an interesting perspective on your code.</p>
+<p>Anyways, for the challenge: take a function <code>primes(n)</code> that generates all primes up to <code>n</code>. Use the concepts that you've learned here to time this function and experiment with optimizing the code. Below, I'll provide a basic prime generator if you'd like somewhere to start - have fun making it better!</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># prime time starter code</span>
+
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">False</span>
+	<span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">prime_list</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+			<span class="n">prime_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">prime_list</span>
+</pre></div>
+</td></tr></table>
+<p><br>
+<br>
+<br>
+<div class="error">
+    WARNING:<br><br>
+    hover cursor below for spoiler
+</div>
+<br>
+<br></p>
+<table class="spoiler highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># There is no solution! ha HA</span>
+<span class="c1"># (I&#39;m not going to claim to know the most efficient prime generator...)</span>
+</pre></div>
+</td></tr></table>
+<div class="footer"></div></div>
+	</body>
+</html>
