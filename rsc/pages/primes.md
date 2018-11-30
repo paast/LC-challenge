@@ -32,7 +32,7 @@ ${primes_dis.py}
 
 <br>
 
-The left column is line number, middle is the bytecode instruction, left is the opargs. Here we can see that on line 4 we do the following: `load x`, `load x` (again, for multiplication), `binary multiply` (x * x), `return value` (returning calculated value). Again this isn't key to this challenge, but it can be an interesting perspective on your code.
+The left column is line number, middle is the bytecode instruction, right is the opargs. Here we can see that on line 4 we do the following: `load x`, `load x` (again, for multiplication), `binary multiply` (x * x), `return value` (returning calculated value). Again this isn't key to this challenge, but it can be an interesting perspective on your code.
 
 Anyways, for the challenge: take a function `primes(n)` that generates all primes up to `n`. Use the concepts that you've learned here to time this function and experiment with optimizing the code. Below, I'll provide a basic prime generator if you'd like somewhere to start - have fun making it better!
 
