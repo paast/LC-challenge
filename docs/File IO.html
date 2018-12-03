@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/norm.css">
+		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/pygments.css">
+	</head>
+	<body>
+		<div class="menu"><a href='Index.html'>0 - INDEX</a><a href='Recursion.html'>1 - RECURSION</a><a href='Primes.html'>2 - PRIMES</a><a href='File IO.html'>3 - FILE IO</a></div>
+		<div class="content"><h1>File IO</h1>
+<hr />
+<p><br>
+<br>
+<br>
+<br></p>
+<p>In this lesson, we'll be looking at file I/O in python, along with a few file types that are particularly useful for data storage/sharing and you will almost certainly find in the wild - CSV, JSON, and XML.</p>
+<p>In a computer system, everything is data. Any representation of any concept is data - and concepts have limited use in isolation. <a href="https://docs.python.org/3/library/io.html">Input/Output</a> (I/O) allows a program to break this isolation, thus gaining vastly increased potential. I/O comes in many different varieties - file, network, device, etc. - and we've already worked with standard input/output in the form of <code>input()</code> and <code>print()</code>. But here we'll only be looking at file I/O. File I/O allows us to interact with the file system, reading data in from files and writing data out to files.</p>
+<p>Python abstracts a lot of the complexity of file I/O away, so it's as simple as:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="c1"># do stuff with file</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># other stuff</span>
+</pre></div>
+</td></tr></table>
+<p>As you can see, we create a file object by calling <code>open()</code>. Here, we have two arguments - the first is the relative file path, and the second is the operation type ('r' = read, 'w' = write, etc.). We can then use the file, before finally closing it once we're done. Closing the file releases the allocated resources associated with file I/O. Alternatively, a <code>with</code> statement may be used to handle this process automatically - implicitly cleaning up after the with-block is finished.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+	<span class="c1"># do stuff with file</span>
+
+<span class="c1"># other stuff</span>
+</pre></div>
+</td></tr></table>
+<p>Once we have the file open, we can use any variety of methods defined in the <a href="https://docs.python.org/3/library/io.html#io.IOBase">documentation</a> to interact with the file (<code>read()</code>, <code>write()</code>, etc).</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+	<span class="n">values</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+
+<span class="c1"># if data.txt = &quot;4, 10, 82, 15, 0&quot;</span>
+<span class="c1"># then will print [&#39;4&#39;, &#39;10&#39;, &#39;82&#39;, &#39;15&#39;, &#39;0&#39;]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<p>When it comes to file I/O for local data, there are 3 predominant file types (that I've been exposed to) - <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CVS</a> (comma separated values), <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> (JavaScript Object Notation), and <a href="https://www.w3schools.com/xml/xml_whatis.asp">XML</a> (eXtensible Markup Language). A CSV file is literally just a file with a bunch of comma-separated values. JSON is based on JavaScript objects, but has gained massive popularity - probably from its wide usage in Web APIs and its relative compactness and quick parseability compared to XML. XML is a type of Markup Language (a language that uses <code>&lt;tags&gt;</code> to delimit) which is slower to parse but can be more human-readable than JSON - thus making it useful for things like preference files etc. CSV files are easy enough to parse - just split on commas to get separate values - but JSON and XML are much more difficult. Thus there are libraries in all modern languages that I'm aware of for translating to and from JSON/XML. I'll point to the <a href="https://docs.python.org/3/library/json.html">JSON</a> module for Python as an example.</p>
+<p>Your challenge here is twofold:</p>
+<ul>
+<li>Create a CSV file containing all primes up to <code>1000</code> named <code>primes.txt</code>.</li>
+<li>Load the provided JSON file <a href="./assets/challenge_3-2.json" download>[download]</a> and sum the list within.</li>
+</ul>
+<div class='footer'></div>
+
+<!-- > Introduction and importance of file I/O
+> Python abstracts a lot of the complexity away
+> Basic introduction to file I/O in python (try + except)
+> `with` statement for file I/O
+
+> Useful file types
+    > plaintext(csv)
+    > XML
+    > JSON
+    > etc. --></div>
+	</body>
+</html>
