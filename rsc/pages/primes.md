@@ -5,7 +5,7 @@
 <br>
 <br>
 
-In this lesson we'll look at measuring the performance of code through a few different modules. We'll also briefly mention Big O notation and its usefulness in analyzing the complexity of an algorithm. Finally, the challenge will be to take some starter code (a naive prime number generator) and have fun trying to optimize it. There is no specific end-goal, this challenge is meant to be exploratory. However, you are more than encouraged to share solutions amongst classmates and engage in some friendly competition.
+In this lesson we'll look at measuring the performance of code through a few different modules. The challenge will be to take some starter code (a naive prime number generator) and have fun trying to optimize it. There is no specific end-goal, this challenge is meant to be exploratory. However, you are more than encouraged to share solutions amongst classmates and engage in some friendly competition.
 
 
 The first module we'll look at is the [`time`](https://docs.python.org/3/library/time.html) module. I'll only briefly go over `time.time_ns()`, but feel free to browse the documentation for other useful features. The function time.time_ns() gives us the system time in nanoseconds since the "epoch" (Jan 1, 1970 @ 00:00:00). At the time of writing this, I get the value `1543608402547405100`. If we take the time before executing our code, take the time after, and then calculate the difference, we end up with the time it took to execute the code.
