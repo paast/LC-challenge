@@ -36,7 +36,7 @@ def main():
 	HTML = open('./templates/html.html').read()
 	menu_items = []
 	for name in map(lambda x: x.split('.')[0], page_files):
-		filename = name.split(' - ')[1]
+		filename = name.split(' - ')[1].lower()
 		item = "<a href='{}'>{}</a>".format(filename + '.html', name.upper())
 		menu_items.append(item)
 
@@ -50,7 +50,7 @@ def main():
 		# content = re.sub('☻', "<span class='tab'></span>", content)
 		page = HTML.format(menu_items=''.join(menu_items), content=content)
 
-		new_file = file_name.split('.')[0].split(' - ')[1] + '.html'
+		new_file = file_name.split('.')[0].split(' - ')[1].lower() + '.html'
 		open('../docs/' + new_file, 'w').write(page)
 
 
