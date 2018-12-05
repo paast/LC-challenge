@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/norm.css">
+		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/pygments.css">
+	</head>
+	<body>
+		<div class="menu"><a href='index.html'>0 - INDEX</a><a href='recursion.html'>1 - RECURSION</a><a href='primes.html'>2 - PRIMES</a><a href='file io.html'>3 - FILE IO</a></div>
+		<div class="content"><h1>RECURSION</h1>
+<hr />
+<p><br>
+<br>
+<br>
+<br></p>
+<p><a href="https://runestone.launchcode.org/runestone/static/thinkcspy/Studios/wagon-wheel.html#bonus-missions">One of the bonus missions</a> for the Wagon Wheel studio was to generate the <strong>nth</strong> number of the Fibonacci sequence. If you happened to do this problem, you would likely have used a for-loop or while-loop to solve it. This happens to work fine for the Fibonacci sequence problem, but other problems cannot be solved using a single loop (or any well-defined amount of loops). Thus, we are going to investigate an alternate strategy for writing algorithms: <strong>recursion</strong>. In order to understand recursion, you must first understand recursion.</p>
+<p><br></p>
+<p><img alt="?" src="https://i.redd.it/rsspb061xgz01.jpg" title="pooh-cursion" /></p>
+<p><br>
+<br></p>
+<p>In programming, recursion is often utilized by having a function call itself to solve a self-similar sub-set of the original problem. For example, say we want to print each item in a list - that's easy, we just use a for-loop:</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="c1"># will print &quot;1 2 3 4 5&quot;</span>
+</pre></div>
+</td></tr></table>
+<p><br></p>
+<p>But what if that list can have more lists inside of it? And those lists have yet more lists inside of them? What if we don't know how many lists are nested inside of each other? There's no way to deal with this sort of problem using a single for-loop. However, the following code illustrates how a recursive function can handle this situation gracefully:</p>
+<p><br></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_print</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+		<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
+			<span class="n">recursive_print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]]</span>
+
+
+<span class="c1"># will print &quot;1 2 3 4 5 6 7&quot;</span>
+<span class="n">recursive_print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<p><br></p>
+<p>As you can see here, each time we encounter a list within a list, we recursively call our function again. Your challenge, should you accept it, is to use recursion to solve the Fibonacci sequence problem from the Wagon Wheel studio.</p>
+<p><br>
+<br>
+<br>
+<div class="error">
+    WARNING:<br><br>
+    hover cursor below for spoiler
+</div>
+<br>
+<br></p>
+<table class="spoiler highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">n</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="p">(</span><span class="n">recursive_fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">recursive_fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+<div class="footer"></div></div>
+	</body>
+</html>
