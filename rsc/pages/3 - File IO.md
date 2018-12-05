@@ -25,20 +25,7 @@ When it comes to file I/O for local data, there are 3 predominant file types (th
 
 Your challenge here is twofold:
 
-- Create a CSV file containing all primes up to `1000` named `primes.txt`.
-- Load the provided JSON file <a href="./assets/challenge_3-2.json" download>[download]</a> and sum the list within.
+- Create a CSV file containing all primes up to `1000` named `primes.csv`.
+- Download the provided <a href="./assets/challenge_3-2.json" download>JSON file</a>, and write a python script to read it and sum the list within.
 
 <div class='footer'></div>
-
-
-
-<!-- > Introduction and importance of file I/O
-> Python abstracts a lot of the complexity away
-> Basic introduction to file I/O in python (try + except)
-> `with` statement for file I/O
-
-> Useful file types
-	> plaintext(csv)
-	> XML
-	> JSON
-	> etc. -->

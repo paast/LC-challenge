@@ -51,20 +51,9 @@
 <p>When it comes to file I/O for local data, there are 3 predominant file types (that I've been exposed to) - <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CVS</a> (comma separated values), <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> (JavaScript Object Notation), and <a href="https://www.w3schools.com/xml/xml_whatis.asp">XML</a> (eXtensible Markup Language). A CSV file is literally just a file with a bunch of comma-separated values. JSON is based on JavaScript objects, but has gained massive popularity - probably from its wide usage in Web APIs and its relative compactness and quick parseability compared to XML. XML is a type of Markup Language (a language that uses <code>&lt;tags&gt;</code> to delimit) which is slower to parse but can be more human-readable than JSON - thus making it useful for things like preference files etc. CSV files are easy enough to parse - just split on commas to get separate values - but JSON and XML are much more difficult. Thus there are libraries in all modern languages that I'm aware of for translating to and from JSON/XML. I'll point to the <a href="https://docs.python.org/3/library/json.html">JSON</a> module for Python as an example.</p>
 <p>Your challenge here is twofold:</p>
 <ul>
-<li>Create a CSV file containing all primes up to <code>1000</code> named <code>primes.txt</code>.</li>
-<li>Load the provided JSON file <a href="./assets/challenge_3-2.json" download>[download]</a> and sum the list within.</li>
+<li>Create a CSV file containing all primes up to <code>1000</code> named <code>primes.csv</code>.</li>
+<li>Download the provided <a href="./assets/challenge_3-2.json" download>JSON file</a>, and write a python script to read it and sum the list within.</li>
 </ul>
-<div class='footer'></div>
-
-<!-- > Introduction and importance of file I/O
-> Python abstracts a lot of the complexity away
-> Basic introduction to file I/O in python (try + except)
-> `with` statement for file I/O
-
-> Useful file types
-    > plaintext(csv)
-    > XML
-    > JSON
-    > etc. --></div>
+<div class='footer'></div></div>
 	</body>
 </html>
