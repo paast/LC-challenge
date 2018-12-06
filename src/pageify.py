@@ -48,7 +48,7 @@ def main():
 		html = markdown.markdown(file, extensions=['tables'])
 		content = re.sub(cre, pyg, html)
 		# content = re.sub('☻', "<span class='tab'></span>", content)
-		page = HTML.format(menu_items=''.join(menu_items), content=content)
+		page = HTML.format(menu_items=''.join(menu_items), content=content).replace('Â¿', '¿')
 
 		new_file = file_name.split('.')[0].split(' - ')[1].lower() + '.html'
 		open('../docs/' + new_file, 'w').write(page)

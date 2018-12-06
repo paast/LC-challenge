@@ -28,4 +28,17 @@ Your challenge here is twofold:
 - Create a CSV file containing all primes up to `1000` named `primes.csv`.
 - Download the provided <a href="./assets/challenge_3-2.json" download>JSON file</a>, and write a python script to read it and sum the list within.
 
+<br>
+<br>
+<br>
+<div class="error">
+	WARNING:<br><br>
+	hover cursor below for spoiler
+</div>
+<br>
+<br>
+
+${file_solution.py+}
+
+
 <div class='footer'></div>
