@@ -25,7 +25,7 @@ In the second example, we define our regex pattern as `r"\[(\d+-\d+-\d+)\ (\d+:\
 
 This is a lot to absorb - especially considering that you'll need to do some external research on your own to get a better feeling for regular expressions. I'm going to encourage peer-driven effort more so than usual due to this - if you find a resource that was particularly helpful, share it with your classmates. We may end up taking multiple classes to go over this, if necessary.
 
-For the challenge problem, I've attached <a href="./assets/bonnie.txt" download>a plaintext file</a> which documents the adventures of a bee. The document is composed of many records with the format `[time]:<x, y, z>`, where time is in seconds. When I made the file everything seemed normal but my finger slipped when I uploaded it. I'm not quite sure what happened, but I'm sure you all are bright enough to figure it out. There are multiple parts to this challenge:
+For the challenge problem, I've attached <a href="./assets/bonnie.txt" download>a plaintext file</a> which documents the adventures of a bee. The document is composed of many records with the format `[time]:<x, y, z>`, where time is in seconds from the start (increasing). When I made the file everything seemed normal but my finger slipped when I uploaded it. I'm not quite sure what happened, but I'm sure you all are bright enough to figure it out. There are multiple parts to this challenge:
 
 - Assuming that Bonnie *(the bee, of course)* started at the coordinates `(0, 0, 0)` and at `time = 0` - find out the distance to where she ended up.
 - How long did it take her to reach that destination?  
