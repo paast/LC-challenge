@@ -33,5 +33,4 @@ For the challenge problem, I've attached <a href="./assets/bonnie.txt" download>
 - Bonus: ¿?¿¿??¿,   ASCII char = 7 bits
 
 
-
 <div class='footer'></div>
