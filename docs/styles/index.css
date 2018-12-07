@@ -101,6 +101,12 @@ body {
 .content code {
 	color: #E9566B;
 	background-color: #47314A;
+	border-radius: 3px;
+}
+
+.alert code {
+	background-color: #F7BB4E;
+	color: #E20524;
 }
 
 .footer {
