@@ -104,6 +104,10 @@ body {
 	border-radius: 3px;
 }
 
+strong {
+	color: #dabb42;
+}
+
 .alert code {
 	background-color: #F7BB4E;
 	color: #E20524;
