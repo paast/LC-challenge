@@ -29,6 +29,7 @@ body {
 	margin: 0;
 	font-family: Noto Sans, Consolas;
 	overflow-x: hidden;
+	word-wrap: break-word;
 }
 
 .content {
@@ -102,6 +103,8 @@ body {
 	color: #E9566B;
 	background-color: #47314A;
 	border-radius: 3px;
+	word-wrap: break-word;
+	text-align:left;
 }
 
 strong {
