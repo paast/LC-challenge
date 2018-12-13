@@ -27,7 +27,7 @@ This is a lot to absorb - especially considering that you'll need to do some ext
 
 <div class="alert">Yo, also: <code>re.match()</code> only matches a single match and it always looks at the beginning of the string for the match. Use <code>re.search()</code> to find anywhere in the string, and <code>re.findall()</code> to find all matches in the string.</div>
 
-For the challenge problem, I've attached <a href="./assets/bonnie.txt" download>a plaintext file</a> which documents the adventures of a bee. The document is composed of many records with the format `[time]:<x, y, z>`, where time is in seconds from the start (increasing) and the distance is how far she moved in that time (relative to her starting position from the time before). When I made the file everything seemed normal but my finger slipped when I uploaded it. I'm not quite sure what happened, but I'm sure you all are bright enough to figure it out. There are multiple parts to this challenge:
+For the challenge problem, I've attached <a href="./assets/bonnie.txt" download>a plaintext file</a> which documents the adventures of a bee. The document is composed of many records with the format `[time]:<x, y, z>`, where `time` is in seconds from the start (increasing) and `distance` is the relative distance she traveled in that time (not distance from the origin). When I made the file everything seemed normal but my finger slipped when I uploaded it. I'm not quite sure what happened, but I'm sure you all are bright enough to figure it out. There are multiple parts to this challenge:
 
 - Assuming that Bonnie *(the bee, of course)* started at the coordinates `(0, 0, 0)` and at `time = 0` - find out the distance to where she ended up.
 - How long did it take her to reach that destination?  
