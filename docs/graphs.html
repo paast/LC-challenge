@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/norm.css">
+		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/pygments.css">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"> 
+	</head>
+	<body>
+		<div class="menu"><a href='index.html'>00 - INDEX</a><a href='recursion.html'>01 - RECURSION</a><a href='primes.html'>02 - PRIMES</a><a href='file io.html'>03 - FILE IO</a><a href='regex.html'>04 - REGEX</a><a href='hash.html'>05 - HASH</a><a href='generation.html'>06 - GENERATION</a><a href='graphs.html'>07 - GRAPHS</a></div>
+		<div class="content"><h1>An Introduction to Graph Theory</h1>
+<hr />
+<p><br>
+<br>
+<br>
+<br></p>
+<p>In graph theory, a graph is a set of related points defined by <strong>nodes</strong> and <strong>edges</strong>. In this context, a node is a point and an edge is a connection between two nodes. This might sound a bit abstract - and that's because it is. It's abstract in the same way that a list is abstract. But as I'm sure you've integrated lists into your problem-solving repertoire, so might you integrate this. Take, for example, a mountain path that splits and winds and goes up and down hills. You enter the path at a specific location and you wish to get to another location. Among all of the possible paths, which one is the quickest? If we represent each location (or intersection) as a node and we represent each path as an edge, we now have a structured definition of the path-system. We can add <strong>weights</strong> to the edges - numbers which allow us to quantify how long each path will take to travel - and in doing so we can solve problems like what the quickest route is. This is used all of the time in the real world. Route optimization (think google maps), network optimization (internet routing), fluid dynamics simulations, natural language quantification... the list goes on. Lots of applicability.</p>
+<p>There are a few defining features of graphs that I'll introduce here as they determine the effectiveness of various implementation strategies:</p>
+<ul>
+<li><strong>Density:</strong> If we take density to be <code>Average Edges per Node / Total Nodes</code>, then a graph is more dense the more connected the nodes are, and inversely more sparse the less connected the nodes are.</li>
+<li><strong>Directionality:</strong> Up until now, we've discusses edges as being connections between nodes - as if it's an undirected relationship between the two nodes (<code>A -&gt; B == B -&gt; A</code>). But what if we have a one-way path? We'd need to introduce the concept of a directional graph - one where <code>A -&gt; B</code> does not necessarily equal <code>B -&gt; A</code>.</li>
+<li><strong>Weighted Graphs:</strong> To solve some problems, all we need consider is the boolean connectivity - whether two nodes are connected or not. But if each edge is not the same, if we are trying to model some kind of cost associated with edges, then we have to be able to assign weights to the edges.</li>
+<li><strong>Additional Considerations:</strong> Is every node in the graph connected? Are there any loops in the graph? Can every node get to every other node?</li>
+</ul>
+<p>These are all things to think about when solving a problem using graphs. But how do we actually use graphs? They're not as simple as lists, where you can just create one using <code>[]</code> and add to it using <code>list.append()</code>. Python has already done all of the heavy lifting for you when it comes to lists, probably because a programming language is not very approachable without lists. But graphs are not so necessary. Very useful - but not a necessary building block like lists are. In order to use a graph, you're going to first have to define one. This is not easy to do but having learned about classes, you will be much better prepared. This is also the subject of this challenge. Before we dive into that, however, I'm going to briefly introduce some implementation concepts using pseudo-code (this code isn't super specific to any problem, but hopefully it illustrates one way of defining a graph):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">print_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+		<span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># make nodes</span>
+<span class="n">node_A</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">node_B</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">node_C</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+
+<span class="c1"># connect nodes</span>
+<span class="n">node_A</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">node_B</span><span class="p">)</span>
+<span class="n">node_A</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">node_C</span><span class="p">)</span>
+<span class="n">node_A</span><span class="o">.</span><span class="n">print_edges</span><span class="p">()</span>
+
+<span class="c1"># put them in a container if you want</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="p">[</span><span class="n">node_A</span><span class="p">,</span> <span class="n">node_B</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+<p>Your challenge is to create a graph using the following <a href="./assets/matrix.txt" download>Plain Text file</a>. In the file, you will find a grid (matrix). More specifically, you will find a series of lines, each of which is occupied by space-separated values. The number of space-separated values is the same on each line and is equal to the total number of lines (thus creating a relational matrix). A relational matrix is one possible representation of a graph (albeit an inefficient one for most scenarios) where all possible connections are given (twice). You may need to do some research on this. The graph in question happens to be unweighted, undirected, and fully connected (no disconnected nodes), where an <code>_</code> is no edge and a <code>0</code> is an edge. You can refer to the nodes by their index in the matrix (0, 1, 2, ...).</p>
+<ul>
+<li>Find the density of the graph</li>
+<li>For each node in the graph, print all of its edges</li>
+<li>Print all edges in the graph, but only print each edge once</li>
+<li>CHALLENGE: Given any node, print the shortest route to each of the other nodes, where a route from <code>1</code> to <code>5</code> might look like <code>1 -&gt; 17 -&gt; 3 -&gt; 5</code></li>
+</ul>
+<div class='footer'></div></div>
+	</body>
+</html>
