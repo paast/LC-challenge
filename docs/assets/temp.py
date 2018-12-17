@@ -3,12 +3,12 @@ import random
 
 r = 20
 
-graph = [['_' for _ in range(r)] for _ in range(r)]
+graph = [['-' for _ in range(r)] for _ in range(r)]
 
-fuck = list(range(r))
-random.shuffle(fuck)
+heh = list(range(r))
+random.shuffle(heh)
 prev = None
-for f in fuck:
+for f in heh:
 	if prev != None:
 		graph[prev][f] = '0'
 		graph[f][prev] = '0'
