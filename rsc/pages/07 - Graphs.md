@@ -18,11 +18,14 @@ These are all things to think about when solving a problem using graphs. But how
 
 ${graph_example.py}
 
-Your challenge is to create a graph using the following <a href="./assets/matrix.txt" download>Plain Text file</a>. In the file, you will find a grid (matrix). More specifically, you will find a series of lines, each of which is occupied by space-separated values. The number of space-separated values is the same on each line and is equal to the total number of lines (thus creating a relational matrix). A relational matrix is one possible representation of a graph (albeit an inefficient one for most scenarios) where all possible connections are given (twice). You may need to do some research on this. The graph in question happens to be unweighted, undirected, and fully connected (no disconnected nodes), where an `_` is no edge and a `0` is an edge. You can refer to the nodes by their index in the matrix (0, 1, 2, ...).
+Your challenge is to create a graph using the following <a href="./assets/matrix.txt" download>Plain Text file</a>. In the file, you will find a grid (matrix). More specifically, you will find a series of lines, each of which is occupied by space-separated values. The number of space-separated values is the same on each line and is equal to the total number of lines (thus creating a relational matrix). A relational matrix is one possible representation of a graph (albeit an inefficient one for most scenarios) where all possible connections are given (twice). You may need to do some research on this. The graph in question happens to be unweighted, undirected, and fully connected (no disconnected nodes), where an `-` is no edge and a `0` is an edge. You can refer to the nodes by their index in the matrix (0, 1, 2, ...). (Also, it is given that all nodes connect to themselves, so a connection like `1 -> 1` can safely be ignored).
+
+<div class='alert'>
+BTW, if you want to view the plain-text file, you'll have to open it in a text editor that isn't Notepad (e.g. Visual Studio, PyCharm, notepad++, sublime, etc.). Sorry!
+</div>
 
 - Find the density of the graph
 - For each node in the graph, print all of its edges
 - Print all edges in the graph, but only print each edge once
-- CHALLENGE: Given any node, print the shortest route to each of the other nodes, where a route from `1` to `5` might look like `1 -> 17 -> 3 -> 5`
 
 <div class='footer'></div>

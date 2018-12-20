@@ -79,12 +79,15 @@
 <span class="n">graph</span> <span class="o">=</span> <span class="p">[</span><span class="n">node_A</span><span class="p">,</span> <span class="n">node_B</span><span class="p">]</span>
 </pre></div>
 </td></tr></table>
-<p>Your challenge is to create a graph using the following <a href="./assets/matrix.txt" download>Plain Text file</a>. In the file, you will find a grid (matrix). More specifically, you will find a series of lines, each of which is occupied by space-separated values. The number of space-separated values is the same on each line and is equal to the total number of lines (thus creating a relational matrix). A relational matrix is one possible representation of a graph (albeit an inefficient one for most scenarios) where all possible connections are given (twice). You may need to do some research on this. The graph in question happens to be unweighted, undirected, and fully connected (no disconnected nodes), where an <code>_</code> is no edge and a <code>0</code> is an edge. You can refer to the nodes by their index in the matrix (0, 1, 2, ...).</p>
+<p>Your challenge is to create a graph using the following <a href="./assets/matrix.txt" download>Plain Text file</a>. In the file, you will find a grid (matrix). More specifically, you will find a series of lines, each of which is occupied by space-separated values. The number of space-separated values is the same on each line and is equal to the total number of lines (thus creating a relational matrix). A relational matrix is one possible representation of a graph (albeit an inefficient one for most scenarios) where all possible connections are given (twice). You may need to do some research on this. The graph in question happens to be unweighted, undirected, and fully connected (no disconnected nodes), where an <code>-</code> is no edge and a <code>0</code> is an edge. You can refer to the nodes by their index in the matrix (0, 1, 2, ...). (Also, it is given that all nodes connect to themselves, so a connection like <code>1 -&gt; 1</code> can safely be ignored).</p>
+<div class='alert'>
+BTW, if you want to view the plain-text file, you'll have to open it in a text editor that isn't Notepad (e.g. Visual Studio, PyCharm, notepad++, sublime, etc.). Sorry!
+</div>
+
 <ul>
 <li>Find the density of the graph</li>
 <li>For each node in the graph, print all of its edges</li>
 <li>Print all edges in the graph, but only print each edge once</li>
-<li>CHALLENGE: Given any node, print the shortest route to each of the other nodes, where a route from <code>1</code> to <code>5</code> might look like <code>1 -&gt; 17 -&gt; 3 -&gt; 5</code></li>
 </ul>
 <div class='footer'></div></div>
 	</body>
