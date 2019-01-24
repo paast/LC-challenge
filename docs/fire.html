@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles/norm.css">
+		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/pygments.css">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"> 
+	</head>
+	<body>
+		<div class="menu"><a href='index.html'>00 - INDEX</a><a href='recursion.html'>01 - RECURSION</a><a href='primes.html'>02 - PRIMES</a><a href='file io.html'>03 - FILE IO</a><a href='regex.html'>04 - REGEX</a><a href='hash.html'>05 - HASH</a><a href='generation.html'>06 - GENERATION</a><a href='graphs.html'>07 - GRAPHS</a><a href='fire.html'>08 - FIRE</a></div>
+		<div class="content"><h1>Forest Fire</h1>
+<hr />
+<p><br>
+<br>
+<br>
+<br></p>
+<p>For this challenge, we'll be simulating a simplified forest fire using a grid 'map' and a turn-based time system. No new data structures or concepts will be explicitly introduced, but the nature of the problem will likely encourage you to seek them out.</p>
+<p>The first part of the problem is the generation of the forest. A forest is represented by a grid, where each tile in the grid either has a tree or does not have a tree. For the sake of introducing some uniformity to your solutions, your forest generator must take into consideration 3 parameters: <code>width</code>, <code>height</code>, and <code>density</code> (density is the probability of there being a tree on any square [0.0 - 1.0]). This will also make the problem more interesting, as you will be able to fiddle with these values and observe their effects on the outcome. If <code>#</code> = tree and <code>_</code> = no tree, a map with input parameters(10, 10, 0.4) might look something like the following. </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#	# # _ # # # _ # _ #</span>
+<span class="c1">#	_ _ _ # _ # # _ # _</span>
+<span class="c1">#	_ _ _ # # _ _ _ _ #</span>
+<span class="c1">#	_ # _ # _ # _ # _ _</span>
+<span class="c1">#	# # _ _ # # _ _ _ _</span>
+<span class="c1">#	_ _ # _ # _ _ _ _ #</span>
+<span class="c1">#	_ # _ _ _ _ _ # _ _</span>
+<span class="c1">#	_ _ # _ # _ _ # # _</span>
+<span class="c1">#	_ _ _ _ _ _ # _ _ _</span>
+<span class="c1">#	# # _ _ _ _ # # _ #</span>
+</pre></div>
+</td></tr></table>
+<p>You need not necessarily render it like that, but it could be very useful for testing/debugging purposes.</p>
+<p>Second, you are to set fire to the beautiful little forest that you worked so hard on creating. While unfortunate, this will present us with a second part to the challenge. And that's what matters. Challenges.</p>
+<p>Before you set fire to your forest, though, you should understand how fire works. Fire burns trees. Each turn, fire will spread to immediately adjacent trees (not diagonally). Fire lasts for a single turn before burning out. That's about it. That's fire. Now for the remaining challenges:</p>
+<ul>
+<li>
+<p>Light a fire at a random location in your forest.</p>
+<ul>
+<li>How long does it burn for?</li>
+<li>How many trees burnt?</li>
+</ul>
+</li>
+<li>
+<p>Given a forest and a single well-placed starting fire:</p>
+<ul>
+<li>What is the largest fire possible?</li>
+<li>What is the longest fire duration possible?</li>
+</ul>
+</li>
+<li>
+<p>Bonus problems!</p>
+<ul>
+<li>Load custom forests from an external file (this allows you to experiment with different non-random forests)</li>
+<li>Render the forests and fires - this is very open-ended and I would only recommend this if you are interested in graphics. There are many ways to go about this, but I would recommend HTML.</li>
+</ul>
+</li>
+</ul>
+<p><br>
+<br>
+<br></p>
+<div class='alert'>The problems get progressively harder. I highly encourage peer-to-peer discussion, but if it proves to be a little too challenging we can discuss this as a group.</div>
+
+<div class='footer'></div></div>
+	</body>
+</html>
